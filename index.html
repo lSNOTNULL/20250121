@@ -1,0 +1,201 @@
+/* 너는 반응형 디자인과 링크 미리보기와 사용성을 중시하는 FE개발자야,
+html,css,bootstrap 을 바탕으로 (추가적인 js와 인라인 스타일은 없이), felx와
+container를 사용하여 모바일에서도 사용이 가능한 , 카드/아코디언/브레드크럼
+컴포넌트를 포함한, #E69A8D와 #5F4B8B 를 컨셉 색깔로 하는, 코인 노래방 홍보
+페이지를 만들어줘. cdn을 사용할 예정이고, index.html에 별도 style.css 없이
+해주고, og 태그와 favicon을 만들예정이므로 주석으로 해당 위치를 추가해줘.
+webfont도 추가예정이므로 해당 위치를 주석으로 표시해줘. */
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코인 노래방 홍보</title>
+
+    <!-- OG 태그 추가 위치 -->
+    <meta property="og:title" content="코인 노래방 홍보 페이지" />
+    <meta
+      property="og:description"
+      content="최고의 노래방, 코인 노래방에서 노래를 부르세요!"
+    />
+    <meta property="og:image" content="your-image-url.jpg" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+
+    <!-- Favicon 추가 위치 -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap CDN 링크 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Webfont 추가 위치 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* 기본 스타일 */
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .main-container {
+        background-color: #e69a8d;
+        padding: 40px 0;
+      }
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+      }
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 18rem;
+        overflow: hidden;
+      }
+      .card-header {
+        background-color: #5f4b8b;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .card-body {
+        padding: 20px;
+      }
+      .accordion-button {
+        background-color: #5f4b8b;
+        color: white;
+      }
+      .breadcrumb {
+        background-color: transparent;
+        padding: 0;
+        margin: 20px 0;
+      }
+      .breadcrumb-item a {
+        text-decoration: none;
+        color: #5f4b8b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- 헤더 -->
+      <div class="header">
+        <h1>코인 노래방 홍보 페이지</h1>
+        <p>최고의 노래방에서 노래를 부르세요!</p>
+      </div>
+
+      <!-- 브레드크럼 -->
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">홈</a></li>
+          <li class="breadcrumb-item"><a href="#">서비스 소개</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            코인 노래방
+          </li>
+        </ol>
+      </nav>
+
+      <!-- 카드 컴포넌트 -->
+      <div class="card-container">
+        <div class="card">
+          <div class="card-header">코인 노래방</div>
+          <div class="card-body">
+            <h5 class="card-title">즐거운 노래방</h5>
+            <p class="card-text">
+              언제든지 즐길 수 있는 노래방, 여러분을 기다립니다!
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">편리한 결제</div>
+          <div class="card-body">
+            <h5 class="card-title">코인으로 결제</h5>
+            <p class="card-text">
+              코인으로 결제하여 사용의 편리함을 경험하세요.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">다양한 곡목</div>
+          <div class="card-body">
+            <h5 class="card-title">다양한 노래를 부를 수 있습니다!</h5>
+            <p class="card-text">
+              최신곡부터 인기곡까지, 코인 노래방에서 만나보세요.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 아코디언 컴포넌트 -->
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              코인 노래방 사용 방법
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              코인 노래방에서는 코인을 넣고, 원하는 노래를 선택하여 부를 수
+              있습니다.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              제공하는 서비스
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              다양한 노래 선택, 음향 시스템, 그리고 편리한 결제 시스템을
+              제공합니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
